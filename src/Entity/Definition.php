@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace CoolMS\Field\Entity;
 
-use CoolMS\Field\Repository\DefinitionRepositoryInterface;
 use CoolMS\Core\Attribute\ClassMeta;
 use CoolMS\Core\Identifier\IdentifierProviderTrait;
 use CoolMS\Core\Translation\Translatable;
@@ -16,17 +15,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  * A runtime field definition attached to an entity type, describing its type, validation, and display config.
  */
 #[ClassMeta(label: 'Field Definition')]
-// F5.b Phase 5 -- the display `label` (stored in options['label']) is
-// localizable; so is each select option's `label`. Short class name
-// derives to `definition`, domain to `field` (namespace segment after
-// App\). Catalogue keys: `definition.{uuid}.label` for the field label,
-// `definition.{uuid}.option.{value}.label` for a per-option label (the
-// option `value` is the stable local id; see the inline-child seam on
-// LabelResolverInterface::keyForChild()). Reads go through LabelResolver
-// in DefinitionProvider; with no XLIFF override the raw value is served
-// verbatim (behaviour-preserving). Options stay inline {value,label}
-// arrays -- the child seam translates them WITHOUT promoting them to
-// entities.
+// The display `label` (stored in `options['label']`) is translatable, and so
+// is each select option's `label`. Options stay inline `{value, label}`
+// arrays: the child seam translates them without promoting them to entities,
+// which is why the option `value` has to be stable.
+//
+// Catalogue key shapes, the resolver read path and the behaviour when no
+// override exists are in `docs/translatable-labels.md`.
 #[Translatable(fields: ['label'], children: [self::TRANSLATABLE_OPTION_CHILD => ['label']])]
 final class Definition implements DefinitionInterface
 {
@@ -36,11 +31,12 @@ final class Definition implements DefinitionInterface
     use OrderProviderTrait;
 
     /**
-     * childKind token for the LabelResolver inline-child seam (F5.b
-     * Phase 5): each select option's `label` is translatable, keyed by
-     * the option `value`. Used in the #[Translatable(children: ...)]
-     * declaration above and by DefinitionProvider when resolving option
-     * labels. Single source of truth so read + write never skew.
+     * childKind token for the inline-child translation seam: each select
+     * option's `label` is translatable, keyed by the option `value`.
+     *
+     * Declared once, and referenced by the `#[Translatable]` attribute above
+     * as well as by whatever resolves option labels at read time, so the two
+     * sides cannot skew. See `docs/translatable-labels.md`.
      */
     public const string TRANSLATABLE_OPTION_CHILD = 'option';
 

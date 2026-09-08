@@ -60,10 +60,10 @@ final class FieldTypeMap
      *  - `number` => `float`, never `int`. The widget cannot tell them apart, and
      *    a DOUBLE PRECISION column holds every integer an INTEGER one would
      *    while the reverse truncates. `integer` exists precisely so an author
-     *    who needs the exact type can say so. This matches the sibling map in
-     *    {@see \App\Scaffolding\Infrastructure\Doctrine\Mapping\AttributeMappingDriver},
-     *    which has resolved the same ambiguity the same way since the generator
-     *    was written.
+     *    who needs the exact type can say so. The platform's own attribute
+     *    mapping driver has resolved the same ambiguity the same way since the
+     *    schema generator was written, so the two agree by choice rather than
+     *    by accident.
      *  - `date` => `datetime`, the only temporal member of DATA_TYPES. Note this
      *    does NOT mean a date field gets a TIMESTAMP column: PostgreSQL cannot
      *    build a temporal generated column at all, so its platform manager maps

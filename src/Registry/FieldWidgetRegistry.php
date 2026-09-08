@@ -11,11 +11,15 @@ use CoolMS\Field\Contract\FieldWidgetRegistryInterface;
  * Aggregates the front-end widget descriptors every module contributes for a
  * field type (first provider wins per type).
  *
- * Wired in the Field bundle's DI extension with
- * a TaggedIteratorArgument('coolms.field.widget_provider) -- the same explicit
- * Domain/Registry registration as {@see FormTypeRegistry} (Domain/Registry is
- * excluded from the `App\:` glob, so the tagged-iterator argument can't be
- * overwritten; ADR-118).
+ * Registered explicitly by the Field bundle's DI extension, with a tagged
+ * iterator over `coolms.field.widget_provider` -- the same treatment as
+ * {@see FormTypeRegistry}.
+ *
+ * !! The registration has to be explicit. A host application that autowires
+ * its own namespaces by glob will re-register any class it can see and
+ * overwrite the tagged-iterator argument with an autowired one, leaving the
+ * registry with no providers and no error. Registering it here means the
+ * argument is set by the module that knows what belongs in it.
  */
 final class FieldWidgetRegistry implements FieldWidgetRegistryInterface
 {

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace CoolMS\Field\Service;
 
 use CoolMS\Core\Field\FieldConfigProviderInterface;
+use CoolMS\Field\Contract\FieldMetaReaderInterface;
 use CoolMS\Field\Repository\DefinitionRepositoryInterface;
 use CoolMS\Field\VO\FieldMetadata;
-use CoolMS\Field\Contract\FieldMetaReaderInterface;
 
 /**
  * Resolves merged FieldMetadata for a static entity class via a 4-layer pipeline.

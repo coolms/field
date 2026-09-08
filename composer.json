@@ -46,6 +46,19 @@
     "extra": {
         "branch-alias": {
             "dev-develop": "2.0.x-dev"
+        },
+        "coolms": {
+            "docs": {
+                "index": "README.md",
+                "section": "modules",
+                "pages": [
+                    {
+                        "path": "docs/translatable-labels.md",
+                        "title": "Translatable labels",
+                        "order": 10
+                    }
+                ]
+            }
         }
     }
 }

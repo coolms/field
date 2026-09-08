@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace CoolMS\Field\Repository;
 
-use CoolMS\Field\Entity\DefinitionInterface;
 use CoolMS\Core\Repository\RepositoryInterface;
+use CoolMS\Field\Entity\DefinitionInterface;
 
 interface DefinitionRepositoryInterface extends RepositoryInterface
 {

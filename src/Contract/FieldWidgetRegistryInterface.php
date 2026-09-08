@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace CoolMS\Field\Contract;
+
 use CoolMS\Core\Field\FieldWidgetProviderInterface;
 
 /**
