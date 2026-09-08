@@ -2,7 +2,7 @@
 <!--
     Standalone suite for coolms/field.
 
-    The consuming application points its own `core` testsuite at this
+    The consuming application points its own `field` testsuite at this
     same `tests/` directory, so one set of files runs from both places and
     the two cannot disagree about what passes.
 -->
