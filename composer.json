@@ -1,0 +1,51 @@
+{
+    "name": "coolms/field",
+    "description": "Field definitions for the CoolMS platform: the definition model and its value objects, the field-type and widget registries, and the ports a host application implements to store and resolve them",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "coolms",
+        "field",
+        "field-definition",
+        "dynamic-fields",
+        "forms"
+    ],
+    "authors": [
+        {
+            "name": "Dmitry Popov"
+        }
+    ],
+    "require": {
+        "php": "^8.5",
+        "coolms/core": "^2.0",
+        "coolms/entity": "^2.0",
+        "symfony/uid": "^8.0",
+        "symfony/validator": "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "CoolMS\\Field\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CoolMS\\Field\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "2.0.x-dev"
+        }
+    }
+}
