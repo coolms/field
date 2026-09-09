@@ -84,7 +84,7 @@ jobs:
           # resolved, so this list cannot go stale without the build saying so.
           php -r '
             $d = json_decode(file_get_contents("composer.json"), true);
-            $known = ["coolms/core", "coolms/rql"];
+            $known = ["coolms/core", "coolms/entity"];
             $seen = array_merge(array_keys($d["require"] ?? []),
                                 array_keys($d["require-dev"] ?? []));
             $new = array_diff(array_filter($seen,
@@ -100,6 +100,7 @@ jobs:
       - name: Install dependencies
         run: |
           WITH='--with coolms/core:2.0.x-dev'
+          WITH="$WITH --with coolms/entity:2.0.x-dev"
           if [ "${{ matrix.deps }}" = 'lowest' ]; then
             composer update --prefer-lowest --prefer-dist --no-interaction --no-progress $WITH
           else

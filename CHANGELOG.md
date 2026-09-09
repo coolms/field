@@ -9,7 +9,7 @@ major number means here.
 Unlike the packages extracted before it, every entry in this file was written in
 the same commit as the change it describes. Nothing here is reconstructed.
 
-## [Unreleased]
+## Unreleased
 
 ### Added
 
@@ -19,7 +19,7 @@ the same commit as the change it describes. Nothing here is reconstructed.
 
 ### Notes
 
-- ⚠️ **The domain is not yet framework-free.** `Field\Domain\Entity\Definition`
+- !! **The domain is not yet framework-free.** `Field\Domain\Entity\Definition`
   carries `Doctrine\ORM\Mapping` attributes and `Doctrine\DBAL\Types\Types`,
   which is why `doctrine/orm` is absent from `require` here: the mapping is to
   move to `coolms/field-doctrine` before this package is publishable, in line
