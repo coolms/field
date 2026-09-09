@@ -32,7 +32,7 @@ a database or to Symfony.
 
 ## Status
 
-Extracted from the CoolMS platform monorepo. The package follows the platform's
+Part of the CoolMS platform. The package follows the platform's
 release cadence: while the 2.0 generation is settling there is no stable tag,
 and `dev-develop` is aliased to `2.0.x-dev`.
 

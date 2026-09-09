@@ -41,9 +41,10 @@ final class Definition implements DefinitionInterface
     public const string TRANSLATABLE_OPTION_CHILD = 'option';
 
     /**
-     * The DATA types {@see \CoolMS\Entity\Doctrine\Schema\Platform\PlatformSchemaManagerInterface::mapTypeToSql()}
-     * is willing to answer for -- the vocabulary a {@see $type} word is
-     * translated INTO before a column is built from it.
+     * The DATA types a storage adapter is willing to answer for -- the
+     * vocabulary a {@see $type} word is translated INTO before a column is
+     * built from it. The adapter maps them to real column types; this
+     * package only declares which words exist.
      *
      * This is not the vocabulary `$type` is written in. `$type` holds WIDGET
      * words -- see the property's own docblock -- and
@@ -147,7 +148,8 @@ final class Definition implements DefinitionInterface
     public array $formConfig = [];
 
     /**
-     * API Platform metadata for this field.
+     * HTTP-API metadata for this field, read by whatever exposes the
+     * entity over HTTP.
      * Supported keys: 'filterable' (bool), 'sortable' (bool), 'searchable' (bool).
      *
      * @var array<string, mixed>

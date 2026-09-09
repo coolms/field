@@ -81,7 +81,8 @@ interface DefinitionInterface extends FieldDefinitionInterface, OrderableInterfa
     }
 
     /**
-     * Raw API Platform configuration array.
+     * Raw HTTP-API configuration array, read by whatever exposes the
+     * entity over HTTP.
      *
      * @var array<string, mixed>
      */
@@ -90,21 +91,22 @@ interface DefinitionInterface extends FieldDefinitionInterface, OrderableInterfa
     }
 
     /**
-     * Whether this field is filterable via API Platform (from apiConfig).
+     * Whether this field is filterable over the HTTP API (from apiConfig).
      */
     public bool $isFilterable {
         get;
     }
 
     /**
-     * Whether this field is sortable via API Platform (from apiConfig).
+     * Whether this field is sortable over the HTTP API (from apiConfig).
      */
     public bool $isSortable {
         get;
     }
 
     /**
-     * Whether this field is full-text searchable via API Platform (from apiConfig).
+     * Whether this field is full-text searchable over the HTTP API
+     * (from apiConfig).
      */
     public bool $isSearchable {
         get;
