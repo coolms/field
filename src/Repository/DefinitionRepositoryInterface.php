@@ -25,7 +25,7 @@ interface DefinitionRepositoryInterface extends RepositoryInterface
     /**
      * Bulk-update sortOrder for a set of Definitions.
      *
-     * @param array<string, int> $order UUID (string) => new sortOrder value
+     * @param array<string, int> $idToPosition UUID (string) => new sortOrder value
      */
-    public function reorderBatch(array $order): void;
+    public function reorderBatch(array $idToPosition): void;
 }
