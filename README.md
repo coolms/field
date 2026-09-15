@@ -25,7 +25,7 @@ the packages layered above it.
 | --- | --- |
 | `coolms/field` | the definition model, value objects, registries and ports |
 | `coolms/field-doctrine` | the ORM mapping and repository implementation |
-| `coolms/field-bundle` | the Symfony bundle, DI extension, API Platform resources, console commands, form types and validators |
+| `coolms/field-bundle` | the Symfony bundle, DI extension, API resources, console commands, form types and validators |
 
 Depending on `coolms/field` alone gives you the vocabulary without committing to
 a database or to Symfony.
